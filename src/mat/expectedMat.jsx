@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const MatStyle = styled.div`
+const ExpectedMatStyle = styled.div`
   grid-column: 5 / span 6;
-  grid-row: 7 / span 3;
+  grid-row: 1 / span 3;
   justify-self: center;
+  border: 1px solid black;
+  padding: 3px;
+  text-align: center;
 `;
 
-const Mat = () => {
+const ExpectedMat = () => {
   return (
-    <MatStyle>
+    <ExpectedMatStyle>
       <svg
         className="mat"
         aria-labelledby="title"
@@ -37,8 +40,9 @@ const Mat = () => {
         <path d="M 368 53.43 L 200 152.29" fill="none" stroke="#000000" strokeMiterlimit="10" />
         <path d="M 200 152.29 L 200 0.29" fill="none" stroke="#000000" strokeMiterlimit="10" />
       </svg>
-    </MatStyle>
+      <p>Expected Mat</p>
+    </ExpectedMatStyle>
   );
 };
 
-export default Mat;
+export default ExpectedMat;

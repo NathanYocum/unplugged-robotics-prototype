@@ -1,10 +1,27 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const RobotBaseStyle = styled.div`
-  grid-column: 6 / span 2;
-  grid-row: 7 / span 3;
-  align-self: center;
+const BaseStyle = styled.div`
+  grid-column: 7 / span 2;
+  grid-row: 8 / span 2;
+  align-self: start;
+  justify-self: center;
+  display: grid;
+  grid-template-rows: 100px 25px 25px 25px;
+`;
+
+const ClawStatusStyle = styled.div`
+  justify-self: center;
+  grid-row: 2;
+`;
+
+const PositionStyle = styled.div`
+  justify-self: center;
+  grid-row: 3;
+`;
+
+const RobotBaseSVG = styled.svg`
   justify-self: center;
 `;
 
@@ -20,8 +37,8 @@ class Robot extends React.Component {
 
   render() {
     return (
-      <RobotBaseStyle>
-        <svg
+      <BaseStyle>
+        <RobotBaseSVG
           className="robotBase"
           aria-labelledby="title"
           xmlns="http://www.w3.org/2000/svg"
@@ -31,12 +48,16 @@ class Robot extends React.Component {
         >
           <defs />
           <rect x="0" y="0" width="48" height="70" rx="7.2" ry="7.2" fill="#0074D9" stroke="#000000" />
-        </svg>
-      </RobotBaseStyle>
+        </RobotBaseSVG>
+        <ClawStatusStyle>Claw: {this.state.clawOpen ? "Open" : "Closed"}</ClawStatusStyle>
+        <PositionStyle>Position: {this.state.position}</PositionStyle>
+      </BaseStyle>
     );
   }
 }
 
-Robot.propTypes = {};
+Robot.propTypes = {
+  codeToExecute: PropTypes.arrayOf(PropTypes.string)
+};
 
 export default Robot;
